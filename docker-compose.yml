@@ -1,0 +1,27 @@
+services:
+  app:
+    container_name: sample-api
+    build: 
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8000:80"
+    depends_on:
+      - db
+    volumes:
+      - ./:/src:ro
+    environment:
+      DB_URL: postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+  db:
+    container_name: db
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+volumes:
+  postgres_data:
