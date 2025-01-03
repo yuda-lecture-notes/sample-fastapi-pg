@@ -1,13 +1,10 @@
-# Project Template for Local PostGres with FastAPI on Container
+# Sample FastAPI & Postgres
 
 ## What is this for?
-- A quick start project template for an application that has a (local) PostGres SQL database with FastAPI endpoints
+- A demonstration of containerizing FastAPI and Postgres using docker
 
 ## How to run?
 - In the root dir:
     - Ensure Docker Desktop is running on your laptop
     - Run in the CLI:
-        - docker-compose up --build
-
-## How to test
-- Use the examples provided in scratchpad.ipynb
+        - `docker-compose up --build -d`
